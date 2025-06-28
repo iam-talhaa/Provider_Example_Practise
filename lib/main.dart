@@ -1,15 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_practise_app/ProverModel/CounterModel.dart';
+import 'package:provider_practise_app/Video_Screen/VIdeosScreen.dart';
 
-void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (BuildContext context) => Countermodel(),
-      child: ProviderApp(),
-    ),
-  );
+// void main() {
+//   runApp(
+//     ChangeNotifierProvider(
+//       create: (BuildContext context) => Countermodel(),
+//       child: ProviderApp(),
+//     ),
+//   );
+// }
+
+void main() => runApp(VideosAPP());
+
+
+class VideosAPP extends StatefulWidget {
+  const VideosAPP({super.key});
+
+  @override
+  State<VideosAPP> createState() => _VideosAPPState();
 }
+
+class _VideosAPPState extends State<VideosAPP> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: GoogleDriveVideoScreen(),
+    );
+  }
+}
+
 
 class ProviderApp extends StatefulWidget {
   const ProviderApp({super.key});
