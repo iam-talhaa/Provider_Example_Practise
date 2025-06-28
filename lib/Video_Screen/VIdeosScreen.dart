@@ -27,22 +27,28 @@ class _GoogleDriveVideoScreenState extends State<GoogleDriveVideoScreen> {
     super.dispose();
   }
 
+  bool isplay = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Google Drive Video")),
-      body: Center(
-        child:
-            _controller.value.isInitialized
-                ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                )
-                : CircularProgressIndicator(),
-      ),
+      body:
+          isplay == false
+              ? Center(child: Icon(Icons.video_call))
+              : Center(
+                child:
+                    _controller.value.isInitialized
+                        ? AspectRatio(
+                          aspectRatio: _controller.value.aspectRatio,
+                          child: VideoPlayer(_controller),
+                        )
+                        : CircularProgressIndicator(),
+              ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
+            print(isplay);
+            isplay = true;
             _controller.value.isPlaying
                 ? _controller.pause()
                 : _controller.play();
