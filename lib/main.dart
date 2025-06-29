@@ -24,6 +24,7 @@ class VideosAPP extends StatefulWidget {
 class _VideosAPPState extends State<VideosAPP> {
   @override
   Widget build(BuildContext context) {
+    print("Build");
     return MaterialApp(home: GoogleDriveVideoScreen());
   }
 }
