@@ -32,18 +32,23 @@ class _GoogleDriveVideoScreenState extends State<GoogleDriveVideoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Google Drive Video")),
-      body:
-          isplay == false
-              ? Center(child: Icon(Icons.video_call))
-              : Center(
-                child:
-                    _controller.value.isInitialized
-                        ? AspectRatio(
-                          aspectRatio: _controller.value.aspectRatio,
-                          child: VideoPlayer(_controller),
-                        )
-                        : CircularProgressIndicator(),
-              ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            isplay == false
+                ? Center(child: Icon(Icons.video_call))
+                : Center(
+                  child:
+                      _controller.value.isInitialized
+                          ? AspectRatio(
+                            aspectRatio: _controller.value.aspectRatio,
+                            child: VideoPlayer(_controller),
+                          )
+                          : CircularProgressIndicator(),
+                ),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {

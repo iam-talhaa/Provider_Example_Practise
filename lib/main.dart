@@ -14,7 +14,6 @@ import 'package:provider_practise_app/Video_Screen/VIdeosScreen.dart';
 
 void main() => runApp(VideosAPP());
 
-
 class VideosAPP extends StatefulWidget {
   const VideosAPP({super.key});
 
@@ -25,12 +24,9 @@ class VideosAPP extends StatefulWidget {
 class _VideosAPPState extends State<VideosAPP> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: GoogleDriveVideoScreen(),
-    );
+    return MaterialApp(home: GoogleDriveVideoScreen());
   }
 }
-
 
 class ProviderApp extends StatefulWidget {
   const ProviderApp({super.key});
